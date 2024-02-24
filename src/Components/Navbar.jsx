@@ -2,8 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Function to render the Navbar component
-function Navbar(props) {  return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+function Navbar(props) {
+  
+  
+  
+  return (
+    <nav className={`navbar navbar-expand-lg bg-${props.mode=="light"?"light":"dark"} navbar-${props.mode=="dark"?"dark":"light"} `}>
       {/* Container for the Navbar content */}
       <div className="container-fluid">
         {/* Title of the website */}
@@ -27,8 +31,8 @@ function Navbar(props) {  return (
           </ul>
           {/* Dark mode toggle switch */}
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-            <label class="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+            <input class="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+            <label class={`form-check-label text-${props.mode =="dark"?"light":"dark"}`} htmlFor="flexSwitchCheckDefault" >Enable Dark Mode</label>
           </div>
         </div>
       </div>
